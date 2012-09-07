@@ -7,14 +7,14 @@ class A6elks{
 		$this->username = $username;
 		$this->password = $password;
 	}
-	function Allocate_Number($country = 'se',$sms_url = '',$voice_url = ''){
+	function Allocate_Number($country = 'se',$sms_url = '',$voice_start = ''){
 		$post_var = array('country' => $country);
 		if($sms_url != ''){
 			$post_var['sms_url'] = $sms_url;
 		}
-		if($voice_url != '')
+		if($voice_start != '')
 		{
-			$post_var['voice_url'] = $voice_url;
+			$post_var['voice_start'] = $voice_start;
 		}
 		$context = stream_context_create(array(
 			'http' => array(
@@ -36,15 +36,15 @@ class A6elks{
 			return false;
 		}
 	}
-	function Modification($id,$sms_url = '',$voice_url = '')
+	function Modification($id,$sms_url = '',$voice_start = '')
 	{
 		$post_var = array();
 		if($sms_url != ''){
 			$post_var['sms_url'] = $sms_url;
 		}
-		if($voice_url != '')
+		if($voice_start != '')
 		{
-			$post_var['voice_url'] = $voice_url;
+			$post_var['voice_start'] = $voice_start;
 		}
 		$context = stream_context_create(array(
 			'http' => array(
